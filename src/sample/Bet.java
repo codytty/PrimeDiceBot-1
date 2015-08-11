@@ -37,12 +37,13 @@ public class Bet {
         wr.close();
 
         int responseCode = con.getResponseCode();
-        System.out.println("\nSending 'POST' request to URL : " + url);
-        System.out.println("Post parameters : " + urlParameters);
-        System.out.println("Response Code : " + responseCode);
+        System.out.println("\nPOST REQUEST SENT TO : " + url);
+        System.out.println("PARAMETERS : " + urlParameters);
+        System.out.println("RESPONSECODE : " + responseCode);
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
+
         String inputLine;
         StringBuffer response = new StringBuffer();
 
@@ -56,7 +57,7 @@ public class Bet {
         System.out.println(response.toString());
 
         JSONObject loginJsonResp = new JSONObject(response.toString());
-        accessToken = loginJsonResp.getString("access_token");
+        String accessToken = loginJsonResp.getString("access_token");
         System.out.println(accessToken);
     }
 
