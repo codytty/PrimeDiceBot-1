@@ -8,22 +8,21 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="346.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="346.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Button layoutX="427.0" layoutY="297.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="54.0" text="Start" />
-      <PasswordField layoutX="189.0" layoutY="297.0" prefHeight="25.0" prefWidth="149.0" promptText="Password" />
-      <TextField layoutX="35.0" layoutY="297.0" promptText="Username" />
-      <TableView layoutX="34.0" layoutY="14.0" prefHeight="241.0" prefWidth="447.0">
+      <Button layoutX="361.0" layoutY="265.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Start" onAction="#startBot" />
+      <PasswordField fx:id="TFPassword" layoutX="189.0" layoutY="297.0" prefHeight="25.0" prefWidth="149.0" promptText="Password" />
+      <TextField fx:id="TFUsername" layoutX="35.0" layoutY="297.0" promptText="Username" />
+      <TableView layoutX="34.0" layoutY="14.0" prefHeight="241.0" prefWidth="394.0">
         <columns>
-          <TableColumn prefWidth="96.0" text="Time" />
-          <TableColumn prefWidth="254.0" text="Last Bet Profit" />
-            <TableColumn minWidth="0.0" prefWidth="96.0" text="Delay" />
+          <TableColumn prefWidth="76.0" text="Time" />
+          <TableColumn prefWidth="230.0" text="Last Bet Profit" />
+            <TableColumn minWidth="0.0" prefWidth="87.0" text="Delay (ms)" />
         </columns>
       </TableView>
-      <TextField layoutX="34.0" layoutY="265.0" prefHeight="25.0" prefWidth="67.0" promptText="Base Bet" />
-      <TextField layoutX="105.0" layoutY="265.0" prefHeight="25.0" prefWidth="78.0" promptText="Win Chance" />
-      <TextField layoutX="189.0" layoutY="265.0" prefHeight="25.0" prefWidth="67.0" promptText="Multiplier" />
-      <TextField layoutX="260.0" layoutY="265.0" prefHeight="25.0" prefWidth="78.0" promptText="Profit" />
+      <TextField fx:id="TFBaseBet" layoutX="34.0" layoutY="265.0" prefHeight="25.0" prefWidth="67.0" promptText="Base Bet" />
+      <TextField fx:id="TFWinChance" layoutX="105.0" layoutY="265.0" prefHeight="25.0" prefWidth="78.0" promptText="Win Chance" />
+      <TextField fx:id="TFMultiplier" layoutX="189.0" layoutY="265.0" prefHeight="25.0" prefWidth="67.0" promptText="Multiplier" />
+      <TextField fx:id="TFProfit" layoutX="260.0" layoutY="265.0" prefHeight="25.0" prefWidth="78.0" promptText="Profit" />
    </children>
 </Pane>
