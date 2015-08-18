@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 import java.awt.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Controller {
 
@@ -22,13 +24,46 @@ public class Controller {
     @FXML
     private TextField TFPassword;
 
+
+    public interface InterfaceBet {
+        public String doLogin(String username, String password) throws Exception;
+    }
+
     public void startBot() {
 
         String username = TFUsername.getText();
         String password = TFPassword.getText();
 
-        Bet doLog = new Bet();
+        Bet b = new Bet();
 
+        try {
+            b.doLogin(username, password);
+            Thread.sleep(2500);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        /* Multi thread module to be added soon*/
+
+        /*class Processor implements Runnable {
+
+            private volatile int id;
+
+            public Processor(int id) {
+                this.id = id;
+            }
+
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        ExecutorService executor = Executors.newFixedThreadPool(5);
 
         if (TFBaseBet.getText() != null &&
                 TFWinChance.getText() != null &&
@@ -36,17 +71,25 @@ public class Controller {
                 TFProfit.getText() != null &&
                 TFUsername.getText() != null &&
                 TFPassword.getText() != null) {
-
-        } else {
-            System.out.println("Campos por preencher!");
-
             try {
-                doLog.doLogin(username, password);
+                for (int i = 1; i <= numOfThreads; i++) {
+                    executor.submit(new Processor(i));
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        } else {
+            System.out.println("Paremeters missing!");
+        }*/
+
+
+
+
+
 
     }
 
+
 }
+
+
